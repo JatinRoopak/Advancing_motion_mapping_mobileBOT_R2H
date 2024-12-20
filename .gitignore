@@ -3,3 +3,5 @@
 
 # Ignore the .vscode directory
 .vscode/
+
+mobile_robot/.vscode/
