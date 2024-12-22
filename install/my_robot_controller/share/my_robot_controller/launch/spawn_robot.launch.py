@@ -1,0 +1,1 @@
+/home/jojodido/ros2_ws/src/build/my_robot_controller/launch/spawn_robot.launch.py
