@@ -38,7 +38,7 @@ def generate_launch_description():
         'world': os.path.join(pkg_path, 'worlds', 'museum.world'),
         'verbose': 'true'
     }.items()
-)
+    )
 
     # Node to spawn the robot in Gazebo
     spawn_entity = Node(
