@@ -31,6 +31,15 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
     )
 
+    gazebo = IncludeLaunchDescription(
+    PythonLaunchDescriptionSource([os.path.join(
+        get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
+    launch_arguments={
+        'world': os.path.join(pkg_path, 'worlds', 'museum.world'),
+        'verbose': 'true'
+    }.items()
+)
+
     # Node to spawn the robot in Gazebo
     spawn_entity = Node(
         package='gazebo_ros',
