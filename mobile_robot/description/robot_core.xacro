@@ -96,7 +96,7 @@
     </link>
 
     <gazebo reference="chassis">
-        <material>Gazebo/Orange</material>
+        <material>Gazebo/Yellow</material>
     </gazebo>
 
 
