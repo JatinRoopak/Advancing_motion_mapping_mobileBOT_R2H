@@ -56,6 +56,17 @@ def generate_launch_description():
     #     name='joint_state_publisher_gui'
     # )
 
+    load_joint_broadcaster = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'joint_broad'],
+        output='screen'
+    )
+
+    # Command to spawn diff_drive_controller
+    load_diff_drive_controller = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'diff_cont'],
+        output='screen'
+    )
+
     # Launch!
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -66,4 +77,6 @@ def generate_launch_description():
         node_robot_state_publisher,
         spawn_entity,
         #joint_state_publisher_gui
+        load_joint_broadcaster,
+        load_diff_drive_controller
     ])
