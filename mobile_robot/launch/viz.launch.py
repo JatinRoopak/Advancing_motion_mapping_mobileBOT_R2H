@@ -9,6 +9,8 @@ import xacro
 
 def generate_launch_description():
 
+    package_name = 'mobile_robot'
+
     use_sim_time = LaunchConfiguration('use_sim_time')
     
     # Process the URDF file
@@ -26,9 +28,11 @@ def generate_launch_description():
         parameters=[params]
     )
 
+    gazebo_param_file = os.path.join(get_package_share_directory(package_name), 'config', 'gazebo_params.yaml')
     # Include the Gazebo launch file
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
+        launch_arguments={'extra_gazebo_args': '--ros-args --param-file ' + gazebo_param_file}.items()
     )
 
     gazebo = IncludeLaunchDescription(
